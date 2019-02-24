@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<?php
+include_once('template/head.php');
+?>
+<body>
+<div class="row">
+        <div class="container">
+            <h2 class="text-center"><i class="fa fa-home"></i> MyCoworker</h2>
+            <hr style="width:220px;height:3px;border:none;color:#333;background-color:#333;">
+            <h3 class="text-center">Proses Penghapusan Data</h3>
+        </div>
+    </div>
+    <br>
+    <br>
 <?php
 require_once('koneksi.php');
 $koneksiObj =  new Koneksi();
@@ -10,22 +26,28 @@ $name = $_POST['name'];
 $username = $_POST['username'];
 $email = $_POST['email'];
 $password =$_POST['password'];
+$phone      = $_POST['phone'];
+$address    = $_POST['address'];
 
-if( $id=='' || $name=='' || $username=='' || $email=='' || $password==''){
-    echo "Gagal update,pastikan semua kolom di form telah terisi!<br>";
-    echo '<a href="index.php">kembali</a>';
+if( $id=='' || $name=='' || $username=='' || $email=='' || $password=='' || $phone=='' || $address==''){
+    echo "<p class='text-center'>Gagal update,pastikan semua kolom di form telah terisi!</p><br>";
+    echo '<p class="text-center"><a href="index.php">kembali</a>';
     return;
 }
 
-$query = "update input_data set name='$name',username='$username',email='$email',password='$password' where id='$id'";
+$query = "update input_data set name='$name',username='$username',email='$email',password='$password',phone='$phone',address='$address' where id='$id'";
 
 if ($koneksi->query($query)===true){
-    echo "<br>Data " .$name.' berhasil diupdate';
+    echo "<p class='text-center'><br>Data " .$name.' berhasil diupdate</p>';
 }else {
-    echo '<br>Data gagal di update';
+    echo '<p class="text-center"><br>Data gagal di update</p>';
 }
 
 echo "<br>";
-echo "<a href='index.php'>Kembali ke halaman Utama</a>";
+echo "<p class='text-center'><a href='index.php'>Kembali ke halaman Utama</a></p>";
 $koneksi->close();
+include_once('template/script.php');
 ?>
+</body>
+
+</html>
