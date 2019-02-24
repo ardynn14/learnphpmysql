@@ -9,7 +9,7 @@ include_once('template/head.php');
         <div class="container">
             <h2 class="text-center"><i class="fa fa-home"></i> MyCoworker</h2>
             <hr style="width:220px;height:3px;border:none;color:#333;background-color:#333;">
-            <h3 class="text-center">Proses Penghapusan Data</h3>
+            <h3 class="text-center">Proses Pengkinian Data</h3>
         </div>
     </div>
     <br>
@@ -34,7 +34,13 @@ if( $id=='' || $name=='' || $username=='' || $email=='' || $password=='' || $pho
     echo '<p class="text-center"><a href="index.php">kembali</a>';
     return;
 }
-
+$query1 = "select * from input_data where username='$username' or email='$email' or phone='$phone'";
+$count = $koneksi->query($query1);
+if($count->num_rows > 0){
+    echo "<p class='text-center'>Mohon cek kembali, Username,Email atau nomor telepon sudah digunakan!</p></br>";
+    echo'<p class="text-center"><a href="input.php">kembali</a></p>';
+    return;
+}
 $query = "update input_data set name='$name',username='$username',email='$email',password='$password',phone='$phone',address='$address' where id='$id'";
 
 if ($koneksi->query($query)===true){
