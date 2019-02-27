@@ -25,15 +25,27 @@ include_once('template/head.php');
             </div>
         </div>
         <div class="form-group">
-            <label for="username" class="col-sm-2 control-label">Username</label>
+        <label for="gender" class="col-sm-2 control-label">Gender</label>
             <div class="col-sm-5">
-            <input type="text" class="form-control" id="username" name="username" placeholder="input your username" required>
+            <select type="gender" class="form-control" id="gender" name="gender" required>
+                <option>Choose</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
+            <label for="lasteducation" class="col-sm-2 control-label">Last Education</label>
             <div class="col-sm-5">
-            <input type="email" class="form-control" id="email" name="email" placeholder="input your email" required>
+            <select type="lasteducation" class="form-control" id="lasteducation" name="lasteducation" required>
+                <option>Choose</option>
+                <option value="S3">S3</option>
+                <option value="S2">S2</option>
+                <option value="S1">S1</option>
+                <option value="D3">D3</option>
+                <option value="SMA">SMA</option>
+                <option value="SMP">SMP</option>
+            </select>
             </div>
         </div>
         <div class="form-group">
@@ -45,7 +57,34 @@ include_once('template/head.php');
         <div class="form-group">
             <label for="address" class="col-sm-2 control-label">Address</label>
             <div class="col-sm-5">
-            <input type="address" class="form-control" id="address" name="address" placeholder="input your address" required>
+            <input type="address" class="form-control" row="3" id="address" name="address" placeholder="input your address" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="division" class="col-sm-2 control-label">Division</label>
+            <div class="col-sm-5">
+            <select type="division" class="form-control" id="division" name="division" required>
+                <option>Choose</option>
+                <option value="frontend">Front-End</option>
+                <option value="backend">Back-End</option>
+                <option value="webdesign">Web-Design</option>
+                <option value="rnd">RnD</option>
+                <option value="hrd">HRD</option>
+                <option value="marketing">Marketing</option>
+                <option value="webenginer">Web-Enginer</option>
+            </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-5">
+            <input type="email" class="form-control" id="email" name="email" placeholder="input your email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-5">
+            <input type="text" class="form-control" id="username" name="username" placeholder="input your username" required>
             </div>
         </div>
         <div class="form-group">

@@ -22,18 +22,21 @@ if($koneksi->connect_eror){
     echo "Gagal koneksi : ". $koneksi->connect_error;
 }
 $name       = $_POST['name'];
+$gender    = $_POST['gender'];
+$lasteducation    = $_POST['lasteducation'];
+$phone      = $_POST['phone'];
+$address    = $_POST['address'];
 $username   = $_POST['username'];
 $email      = $_POST['email'];
 $password   = $_POST['password'];
-$phone      = $_POST['phone'];
-$address    = $_POST['address'];
+$division   = $_POST['division'];
 
 
 
 
 
 
-if($name=='' || $username=='' || $email=='' || $password=='' || $phone=='' || $address==''){
+if($name==''|| $gender==''|| $lasteducation=='' || $phone=='' || $address==''|| $division=='' || $email=='' || $username=='' || $password==''){
     echo "<p class='text-center'>Mohon cek kembali, pastikan semua telah terisi</p></br>";
     echo '<p class="text-center"><ahref="input.php">kembali</a></p>';
     return;
@@ -45,7 +48,7 @@ if($count->num_rows > 0){
     echo'<p class="text-center"><a href="input.php">kembali</a></p>';
     return;
 }
-$query = "insert into input_data (name, username, email, password,phone,address) values ('$name','$username','$email','$password','$phone','$address')";
+$query = "insert into input_data (name, gender, lasteducation, phone, address, email, division, username, password) values ('$name','$gender','$lasteducation','$phone','$address','$email','$division','$username','$password')";
 if($koneksi->query($query)===true){
     echo "<p class='text-center'><br>Data ".$name.' berhasil disimpan</p>';
 }else {

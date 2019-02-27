@@ -21,32 +21,39 @@ $koneksi = $koneksiObj->getkoneksi();
 if($koneksi->connect_error){
     echo "Gagal koneksi :".$koneksi->connect_error;
 }
-$id = $_POST['id'];
-$name = $_POST['name'];
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password =$_POST['password'];
-$phone      = $_POST['phone'];
-$address    = $_POST['address'];
+$id             = $_POST['id'];
+$name           = $_POST['name'];
+$gender         = $_POST['gender'];
+$lasteducation  = $_POST['lasteducation'];
+$phone          = $_POST['phone'];
+$address        = $_POST['address'];
+$division       = $_POST['division'];
+$email          = $_POST['email'];
+$username       = $_POST['username'];
+$password       = $_POST['password'];
 
-if( $id=='' || $name=='' || $username=='' || $email=='' || $password=='' || $phone=='' || $address==''){
+
+
+if($id=='' || $name==''|| $gender==''|| $lasteducation=='' || $phone=='' || $address==''|| $division=='' || $email=='' || $username=='' || $password==''){
     echo "<p class='text-center'>Gagal update,pastikan semua kolom di form telah terisi!</p><br>";
     echo '<p class="text-center"><a href="index.php">kembali</a>';
     return;
 }
-$query1 = "select * from input_data where username='$username' or email='$email' or phone='$phone'";
-$count = $koneksi->query($query1);
-if($count->num_rows > 0){
-    echo "<p class='text-center'>Mohon cek kembali, Username,Email atau nomor telepon sudah digunakan!</p></br>";
-    echo'<p class="text-center"><a href="input.php">kembali</a></p>';
-    return;
-}
-$query = "update input_data set name='$name',username='$username',email='$email',password='$password',phone='$phone',address='$address' where id='$id'";
+
+// $query1 = "select * from input_data where username='$username' or email='$email' or phone='$phone'";
+// $count = $koneksi->query($query1);
+// if($count->num_rows > 0){
+//     echo "<p class='text-center'>Mohon cek kembali, Username,Email atau nomor telepon sudah digunakan!</p></br>";
+//     echo'<p class="text-center"><a href="index.php">kembali</a></p>';
+//     return;
+// }
+$query = "update input_data set name='$name', gender='$gender', lasteducation='$lasteducation', phone='$phone',
+address='$address', email='$email', division='$division', username='$username', password='$password' where id='$id'";
 
 if ($koneksi->query($query)===true){
     echo "<p class='text-center'><br>Data " .$name.' berhasil diupdate</p>';
 }else {
-    echo '<p class="text-center"><br>Data gagal di update</p>';
+    echo '<p class="text-center"><br>Mohon cek kembali, Username,Email atau nomor telepon telah terdaftar!</p>';
 }
 
 echo "<br>";
